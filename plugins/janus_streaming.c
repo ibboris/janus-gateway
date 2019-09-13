@@ -3728,6 +3728,7 @@ void janus_streaming_setup_media(janus_plugin_session *handle) {
 	janus_streaming_mountpoint *mountpoint = session->mountpoint;
 	if(mountpoint->streaming_source == janus_streaming_source_rtp) {
 		janus_streaming_rtp_source *source = mountpoint->source;
+		JANUS_LOG(LOG_INFO, "SSID for video: %d\n", source->video_ssrc);
 		if(source->keyframe.enabled) {
 			JANUS_LOG(LOG_HUGE, "Any keyframe to send?\n");
 			janus_mutex_lock(&source->keyframe.mutex);
